@@ -1,0 +1,15 @@
+"""
+URLs de la aplicación de recordatorios.
+"""
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import ReminderLogViewSet, ReminderViewSet
+
+router = DefaultRouter()
+router.register(r'logs', ReminderLogViewSet, basename='reminder-log')
+router.register(r'', ReminderViewSet, basename='reminder')
+
+urlpatterns = [
+    path('', include(router.urls)),
+]
+
